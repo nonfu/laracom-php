@@ -35,6 +35,13 @@ class JwtGuard implements Guard
     protected $storageKey;
 
     /**
+     * Indicates if the logout method has been called.
+     *
+     * @var bool
+     */
+    protected $loggedOut = false;
+
+    /**
      * Create a new authentication guard.
      *
      * @param  \Illuminate\Contracts\Auth\UserProvider  $provider
@@ -58,6 +65,10 @@ class JwtGuard implements Guard
      */
     public function user()
     {
+        if ($this->loggedOut) {
+            return null;
+        }
+
         // If we've already retrieved the user for the current request we can just
         // return it back immediately. We do not want to fetch the user data on
         // every call to this method because that would be tremendously slow.
@@ -79,21 +90,27 @@ class JwtGuard implements Guard
      * Attempt to authenticate a user using the given credentials.
      *
      * @param  array  $credentials
-     * @return Authenticatable|null
+     * @return string|null
      */
     public function login(array $credentials)
     {
-        $token = $this->provider->retrieveByCredentials($credentials);
+        $user = $this->provider->retrieveByCredentials($credentials);
 
         // If an implementation of UserInterface was returned, we'll ask the provider
         // to validate the user against the given credentials, and if they are in
         // fact valid we'll log the users into the application and return true.
-        if ($token) {
-            $user = $this->provider->retrieveByToken(null, $token);
+        $token = null;
+        if ($user && $token = $this->provider->validateCredentials($user, $credentials)) {
             $this->setUser($user);
         }
 
         return $token;
+    }
+
+    public function logout()
+    {
+        $this->user = null;
+        $this->loggedOut = true;
     }
 
     /**
