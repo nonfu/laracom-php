@@ -24,6 +24,7 @@
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.10",
         "paypal/rest-api-sdk-php": "*",
+        "repejota/nats": "^0.8.7",
         "santigarcor/laratrust": "5.0.*",
         "shippo/shippo-php": "^1.4"
     },

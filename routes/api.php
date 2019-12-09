@@ -47,3 +47,8 @@ Route::get('/auth/test', function (Request $request) {
     dd($request->cookie('jwt_token'));
     dd(auth()->user());
 });
+
+Route::get('/broker/test', function (Request $request) {
+    $brokerService = new App\Services\Broker\BrokerService();
+    $brokerService->publish('password.reset', ['test']);
+});
