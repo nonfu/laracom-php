@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-        // 以单例模式绑定用户服务到服务容器
+        // 以单例模式绑定用户底层服务到服务容器
         $this->app->singleton('microUserService', function ($app) {
             return new UserService();
         });

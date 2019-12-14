@@ -28,7 +28,7 @@ class UserItem implements Authenticatable, CanResetPasswordContract
             if (in_array($key, $this->hidden)) {
                 continue;
             }
-            switch ($key) {
+            switch (strtolower($key)) {
                 case 'id':
                     $this->id = $value;
                     break;

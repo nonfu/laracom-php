@@ -75,12 +75,11 @@ class JwtGuard implements Guard
         if (!is_null($this->user)) {
             return $this->user;
         }
-
         $user = null;
         $token = $this->getTokenForRequest();
 
         if (!empty($token)) {
-            $user = $this->provider->retrieveByToken(null, $token);
+            $user = $this->provider->retrieveByToken(0, $token);
         }
 
         return $this->user = $user;

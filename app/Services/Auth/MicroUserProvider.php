@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Services\Auth;
 
 use App\MicroApi\Exceptions\RpcException;
