@@ -102,3 +102,9 @@ Route::namespace('Front')->group(function () {
     Route::get("search", 'ProductController@search')->name('search.product');
     Route::get("{product}", 'ProductController@show')->name('front.get.product');
 });
+
+Route::get("/demo/hello", function () {
+    $demoService = new \App\MicroApi\Services\DemoService();
+    $message = $demoService->sayHello("学院君");
+    dd($message);
+});

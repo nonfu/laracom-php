@@ -119,7 +119,7 @@ return [
     */
 
     'providers' => [
-
+        \App\Providers\JaegerServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */

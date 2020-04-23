@@ -35,6 +35,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'jaeger' => [
+        'agent' => 'jaeger:6831',
+        'sampler' => 'probabilistic',
+    ],
+
     'micro' => [
         'api_gateway' => env('MICRO_API_GATEWAY', 'http://laracom-micro-api:8080'),
         'timeout' => env('MICRO_TIMEOUT', 3.0),

@@ -8,6 +8,8 @@ class AttributeValue
     public $attribute_id;
     public $created_at;
     public $updated_at;
+    public $attribute;
+    public $product_attributes;
 
     public function fillAttributes($data)
     {
@@ -30,6 +32,12 @@ class AttributeValue
                     break;
                 case 'updated_at':
                     $this->updated_at = $value;
+                    break;
+                case 'attribute':
+                    $this->attribute = $value;
+                    break;
+                case 'product_attributes':
+                    $this->product_attributes = $value;
                     break;
                 default:
                     break;

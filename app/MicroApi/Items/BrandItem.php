@@ -7,6 +7,7 @@ class BrandItem
     public $name;
     public $created_at;
     public $updated_at;
+    public $products;
 
     public function fillAttributes($data)
     {
@@ -26,6 +27,9 @@ class BrandItem
                     break;
                 case 'updated_at':
                     $this->updated_at = $value;
+                    break;
+                case 'products':
+                    $this->products = $value;
                     break;
                 default:
                     break;

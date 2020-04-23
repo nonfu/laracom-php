@@ -1,0 +1,18 @@
+version: '2'
+services:
+  php:
+    image: fluxoti/php:7.2-web
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 9090:8080
+    environment:
+      - XDEBUG_ENABLED=false
+      - VIRTUAL_HOST=laracom-client.test
+      - VIRTUAL_PORT=8080
+    networks:
+      - microservice
+
+networks:
+  microservice:
+    external: true

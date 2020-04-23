@@ -1,8 +1,5 @@
 <?php
-
-
 namespace App\MicroApi\Services;
-
 
 use App\MicroApi\Exceptions\RpcException;
 use App\MicroApi\Facades\HttpClient;

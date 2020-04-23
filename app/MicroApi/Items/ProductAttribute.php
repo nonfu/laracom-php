@@ -11,6 +11,7 @@ class ProductAttribute
     public $default;
     public $created_at;
     public $updated_at;
+    public $attribute_values;
 
     public function fillAttributes($data)
     {
@@ -42,6 +43,9 @@ class ProductAttribute
                     break;
                 case 'updated_at':
                     $this->updated_at = $value;
+                    break;
+                case 'attribute_values':
+                    $this->attribute_values = $value;
                     break;
                 default:
                     break;

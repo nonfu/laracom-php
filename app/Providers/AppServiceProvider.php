@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Client\GuzzleClient;
 use App\MicroApi\Services\UserService;
-use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 
@@ -26,9 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // 以单例模式绑定 HttpClient 实例到 App 容器
+        // 以单例模式绑定 GuzzleClient 实例到 App 容器
         $this->app->singleton('HttpClient', function ($app) {
-            return new HttpClient([
+            return new GuzzleClient([
                 'base_uri' => config('services.micro.api_gateway'),
                 'timeout'  => config('services.micro.timeout'),
                 'headers'  => [

@@ -1,7 +1,18 @@
 {
     "name": "jsdecena/laracom",
     "description": "Laravel powered e-commerce",
-    "keywords": ["e-commerce", "ecommerce", "shopping-cart", "laravel", "laracom", "laravel-ecommerce", "shop", "laravel5", "framework", "package"],
+    "keywords": [
+        "e-commerce",
+        "ecommerce",
+        "shopping-cart",
+        "laravel",
+        "laracom",
+        "laravel-ecommerce",
+        "shop",
+        "laravel5",
+        "framework",
+        "package"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -19,14 +30,16 @@
         "jsdecena/mailchimp": "~7.0",
         "jsdecena/mcpro": "1.1.*",
         "kalnoy/nestedset": "^4.3",
-        "laravel/cashier": "~7.0",
-        "laravel/framework": "5.7.*",
+        "laravel/cashier": "^9.0.1",
+        "laravel/framework": "^5.7.0",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.10",
         "paypal/rest-api-sdk-php": "*",
         "repejota/nats": "^0.8.7",
         "santigarcor/laratrust": "5.0.*",
-        "shippo/shippo-php": "^1.4"
+        "shippo/shippo-php": "^1.4",
+        "jukylin/jaeger-php": "dev-master",
+        "ramsey/uuid": "^3.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
