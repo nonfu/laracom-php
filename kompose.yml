@@ -1,0 +1,10 @@
+version: '3'
+services:
+  php:
+    image: ambientum/php:7.3-nginx
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 8081:8080
+    labels:
+      kompose.service.type: loadBalancer
